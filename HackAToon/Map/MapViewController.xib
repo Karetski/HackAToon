@@ -19,9 +19,20 @@
         <view contentMode="scaleToFill" id="vku-7M-6lK">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Yvz-WM-ydh">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </mapView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Yvz-WM-ydh" firstAttribute="leading" secondItem="r7W-ku-8fH" secondAttribute="leading" id="2Rz-t4-1m1"/>
+                <constraint firstItem="Yvz-WM-ydh" firstAttribute="trailing" secondItem="r7W-ku-8fH" secondAttribute="trailing" id="4xG-YA-pgC"/>
+                <constraint firstItem="Yvz-WM-ydh" firstAttribute="top" secondItem="vku-7M-6lK" secondAttribute="top" id="LfG-px-5fy"/>
+                <constraint firstItem="Yvz-WM-ydh" firstAttribute="bottom" secondItem="r7W-ku-8fH" secondAttribute="bottom" id="xHb-8s-DCA"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="r7W-ku-8fH"/>
-            <point key="canvasLocation" x="-252" y="-47"/>
+            <point key="canvasLocation" x="-252.5" y="-47.5"/>
         </view>
     </objects>
 </document>
