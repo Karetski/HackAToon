@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="HackAToon" customModuleProvider="target">
             <connections>
+                <outlet property="currentLocationBackground" destination="wGr-XI-yyV" id="Tjg-NT-Il8"/>
+                <outlet property="mapView" destination="Yvz-WM-ydh" id="Yrl-P1-NkC"/>
                 <outlet property="view" destination="vku-7M-6lK" id="xgG-v3-4Lp"/>
             </connections>
         </placeholder>
@@ -23,16 +25,59 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Yvz-WM-ydh">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </mapView>
+                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wGr-XI-yyV">
+                    <rect key="frame" x="319" y="611" width="40" height="40"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Wuk-EY-cxg">
+                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yDy-jr-DP6">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="3Rf-MT-kZX">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="d5S-D3-FfZ"/>
+                        <constraint firstAttribute="width" constant="40" id="lKg-Y4-aCh"/>
+                    </constraints>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuV-OF-e9i">
+                    <rect key="frame" x="319" y="611" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="jPz-vQ-Ue2"/>
+                        <constraint firstAttribute="height" constant="40" id="kNC-GH-4v4"/>
+                    </constraints>
+                    <state key="normal" image="UpdateLocation"/>
+                    <connections>
+                        <action selector="currentLocationTouchUpInside:" destination="-1" eventType="touchUpInside" id="0vh-Ib-wL3"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Yvz-WM-ydh" firstAttribute="leading" secondItem="r7W-ku-8fH" secondAttribute="leading" id="2Rz-t4-1m1"/>
                 <constraint firstItem="Yvz-WM-ydh" firstAttribute="trailing" secondItem="r7W-ku-8fH" secondAttribute="trailing" id="4xG-YA-pgC"/>
+                <constraint firstItem="r7W-ku-8fH" firstAttribute="trailing" secondItem="HuV-OF-e9i" secondAttribute="trailing" constant="16" id="70N-nC-5w2"/>
+                <constraint firstItem="r7W-ku-8fH" firstAttribute="trailing" secondItem="wGr-XI-yyV" secondAttribute="trailing" constant="16" id="Hu8-9P-zlA"/>
                 <constraint firstItem="Yvz-WM-ydh" firstAttribute="top" secondItem="vku-7M-6lK" secondAttribute="top" id="LfG-px-5fy"/>
+                <constraint firstItem="r7W-ku-8fH" firstAttribute="bottom" secondItem="wGr-XI-yyV" secondAttribute="bottom" constant="16" id="OhM-sQ-mbM"/>
                 <constraint firstItem="Yvz-WM-ydh" firstAttribute="bottom" secondItem="r7W-ku-8fH" secondAttribute="bottom" id="xHb-8s-DCA"/>
+                <constraint firstItem="r7W-ku-8fH" firstAttribute="bottom" secondItem="HuV-OF-e9i" secondAttribute="bottom" constant="16" id="xOZ-a1-F42"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="r7W-ku-8fH"/>
             <point key="canvasLocation" x="-252.5" y="-47.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="UpdateLocation" width="21" height="21"/>
+    </resources>
 </document>

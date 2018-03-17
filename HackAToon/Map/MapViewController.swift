@@ -13,55 +13,61 @@ import CoreLocation
 
 class MapViewController: UIViewController {
     
-    @IBOutlet fileprivate weak var mapView: MKMapView!
-    
-    fileprivate let locationManager = CLLocationManager()
-    fileprivate var currentLatitude: Double?
-    fileprivate var curentLongitude: Double?
-    fileprivate var currentDistance: Double?
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet weak var currentLocationBackground: UIVisualEffectView!
+
+    private let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
-        setupLocationManager()
+
+        setupAppearance()
+        setupMap()
+    }
+
+    private func setupAppearance() {
+        currentLocationBackground.layer.cornerRadius = 8.0
+
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    private func setupLocationManager() {
+    private func setupMap() {
+        mapView.showsUserLocation = true
+
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        }
     }
-    
+
+    private func moveToCurrentLocation() {
+        guard let currentLocation = mapView.userLocation.location?.coordinate else {
+            return
+        }
+        self.mapView.setRegion(
+            MKCoordinateRegionMake(currentLocation, MKCoordinateSpanMake(0.1, 0.1)),
+            animated: true
+        )
+    }
+
+    @IBAction func currentLocationTouchUpInside(_ sender: UIButton) {
+        moveToCurrentLocation()
+    }
 }
 
-extension MapViewController: CLLocationManagerDelegate {
-    
-    internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[0]
-        currentLatitude = location.coordinate.latitude
-        currentLatitude = location.coordinate.longitude
-    }
-    
-}
 
 extension MapViewController: MKMapViewDelegate {
-    
-    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        updateScreenDistance()
-    }
-    
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        updateScreenDistance()
-    }
-    
-    private func updateScreenDistance() {
+
+    private func screenDistance() -> Double {
         let mapRect = self.mapView.visibleMapRect
         let eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mapRect), MKMapRectGetMidY(mapRect))
         let westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mapRect), MKMapRectGetMidY(mapRect))
-        self.currentDistance = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint)
+        return MKMetersBetweenMapPoints(eastMapPoint, westMapPoint)
     }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+
 }
