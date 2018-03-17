@@ -48,7 +48,7 @@
                         <constraint firstAttribute="height" constant="40" id="d5S-D3-FfZ"/>
                         <constraint firstAttribute="width" constant="40" id="lKg-Y4-aCh"/>
                     </constraints>
-                    <blurEffect style="extraLight"/>
+                    <blurEffect style="dark"/>
                 </visualEffectView>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuV-OF-e9i">
                     <rect key="frame" x="319" y="611" width="40" height="40"/>
@@ -56,6 +56,7 @@
                         <constraint firstAttribute="width" constant="40" id="jPz-vQ-Ue2"/>
                         <constraint firstAttribute="height" constant="40" id="kNC-GH-4v4"/>
                     </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" image="UpdateLocation"/>
                     <connections>
                         <action selector="currentLocationTouchUpInside:" destination="-1" eventType="touchUpInside" id="0vh-Ib-wL3"/>
