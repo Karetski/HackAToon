@@ -25,9 +25,14 @@ class MapViewController: UIViewController {
         setupMap()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        moveToCurrentLocation()
+    }
+
     private func setupAppearance() {
         currentLocationBackground.layer.cornerRadius = 8.0
-
     }
 
     private func setupMap() {
@@ -46,8 +51,12 @@ class MapViewController: UIViewController {
         guard let currentLocation = mapView.userLocation.location?.coordinate else {
             return
         }
-        self.mapView.setRegion(
-            MKCoordinateRegionMake(currentLocation, MKCoordinateSpanMake(0.1, 0.1)),
+        moveTo(location: currentLocation)
+    }
+
+    private func moveTo(location: CLLocationCoordinate2D) {
+        mapView.setRegion(
+            MKCoordinateRegionMake(location, MKCoordinateSpanMake(0.1, 0.1)),
             animated: true
         )
     }
