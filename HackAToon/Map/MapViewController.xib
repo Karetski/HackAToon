@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="r7W-ku-8fH"/>
-            <point key="canvasLocation" x="-252" y="-47"/>
+            <point key="canvasLocation" x="-252.5" y="-47.5"/>
         </view>
     </objects>
 </document>

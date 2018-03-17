@@ -10,13 +10,14 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
+
     private var searchResultController: UISearchController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupNavigationBar()
-        title = "Populars"
+        setupSearchBar()
+        title = "Popular Places"
         // Do any additional setup after loading the view.
     }
 
@@ -26,29 +27,27 @@ class MapViewController: UIViewController {
 //        navigationController?.pushViewController(placeDetailsController, animated: true)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    private func setupNavigationBar() {
+    private func setupSearchBar() {
         let locationSearchTable = ResultSearchController(nibName: "ResultSearchController", bundle: nil)
-
+        locationSearchTable.delegate = self
         searchResultController = UISearchController(searchResultsController: locationSearchTable)
         searchResultController?.searchResultsUpdater = locationSearchTable
+        searchResultController?.delegate = self
         navigationItem.titleView = searchResultController?.searchBar
         searchResultController?.hidesNavigationBarDuringPresentation = false
+        searchResultController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
     }
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension MapViewController: SearchResultDelegate {
+    func scrollTo(coordinate: CLLocationCoordinate2D) {
+        //TODO: Do your logic here
     }
-    */
+}
 
+extension MapViewController: UISearchControllerDelegate {
+    func willDismissSearchController(_ searchController: UISearchController) {
+
+    }
 }

@@ -9,6 +9,10 @@
 import UIKit
 import MapKit
 
+protocol SearchResultDelegate: class {
+    func scrollTo(coordinate: CLLocationCoordinate2D)
+}
+
 class ResultSearchController: UIViewController {
 
     private struct Constants {
@@ -22,29 +26,27 @@ class ResultSearchController: UIViewController {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.identifer)
         }
     }
-    var matchingItems: [MKMapItem] = []
+    weak var delegate: SearchResultDelegate?
+    private var matchingItems: [MKMapItem] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        tableView.reloadData()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        matchingItems.removeAll()
     }
 }
 
 extension ResultSearchController: UISearchResultsUpdating {
+
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchBarText = searchController.searchBar.text else {
-                return
-        }
+        guard let searchBarText = searchController.searchBar.text else { return }
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = searchBarText
-
         let search = MKLocalSearch(request: request)
-        search.start { [weak self] response, _ in
-            guard let response = response, let `self` = self else {
+        search.start { response, _ in
+            guard let response = response else {
                 return
             }
-            self.matchingItems += response.mapItems
+            self.matchingItems = response.mapItems
             self.tableView.reloadData()
         }
     }
@@ -52,8 +54,11 @@ extension ResultSearchController: UISearchResultsUpdating {
 
 extension ResultSearchController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: Notify delegate
-        
+        tableView.deselectRow(at: indexPath, animated: true)
+        let selectedItemCoordiinate = matchingItems[indexPath.row].placemark.coordinate
+        dismiss(animated: true) { [weak self] in
+            self?.delegate?.scrollTo(coordinate: selectedItemCoordiinate)
+        }
     }
 }
 
@@ -62,6 +67,7 @@ extension ResultSearchController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.identifer) else {
             return UITableViewCell()
         }
+
         cell.textLabel?.text = matchingItems[indexPath.row].placemark.name
         return cell
     }
