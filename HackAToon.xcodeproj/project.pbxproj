@@ -17,9 +17,12 @@
 		9B9846FC205D2B7F002D00C2 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9846FB205D2B7F002D00C2 /* Temp.swift */; };
 		9B9846FE205D2B91002D00C2 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9846FD205D2B91002D00C2 /* PlaceDetailsViewController.swift */; };
 		9B984700205D2BF4002D00C2 /* PlaceDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9846FF205D2BF4002D00C2 /* PlaceDetailsViewController.xib */; };
+		C02E076128B50FBD59DD15BA /* Pods_HackAToon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA74B2E0F4E4B410288EDBE /* Pods_HackAToon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B39E9EB764F2C2C022D49E1 /* Pods-HackAToon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackAToon.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackAToon/Pods-HackAToon.release.xcconfig"; sourceTree = "<group>"; };
+		6CA9CD131306B1A4D72C559D /* Pods-HackAToon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackAToon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackAToon/Pods-HackAToon.debug.xcconfig"; sourceTree = "<group>"; };
 		9B9846D9205D24E0002D00C2 /* HackAToon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackAToon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B9846DC205D24E0002D00C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B9846DE205D24E0002D00C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +35,7 @@
 		9B9846FB205D2B7F002D00C2 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		9B9846FD205D2B91002D00C2 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
 		9B9846FF205D2BF4002D00C2 /* PlaceDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDetailsViewController.xib; sourceTree = "<group>"; };
+		FCA74B2E0F4E4B410288EDBE /* Pods_HackAToon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackAToon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02E076128B50FBD59DD15BA /* Pods_HackAToon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +55,8 @@
 			children = (
 				9B9846DB205D24E0002D00C2 /* HackAToon */,
 				9B9846DA205D24E0002D00C2 /* Products */,
+				A1E14F323DE8CB0C9B594FCC /* Pods */,
+				ED744D6DA50E4B693ABBE192 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +110,23 @@
 			path = PlaceDetails;
 			sourceTree = "<group>";
 		};
+		A1E14F323DE8CB0C9B594FCC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6CA9CD131306B1A4D72C559D /* Pods-HackAToon.debug.xcconfig */,
+				3B39E9EB764F2C2C022D49E1 /* Pods-HackAToon.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ED744D6DA50E4B693ABBE192 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCA74B2E0F4E4B410288EDBE /* Pods_HackAToon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,9 +134,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B9846EB205D24E0002D00C2 /* Build configuration list for PBXNativeTarget "HackAToon" */;
 			buildPhases = (
+				CE14D16D200DD9A0ED9A67BE /* [CP] Check Pods Manifest.lock */,
 				9B9846D5205D24E0002D00C2 /* Sources */,
 				9B9846D6205D24E0002D00C2 /* Frameworks */,
 				9B9846D7205D24E0002D00C2 /* Resources */,
+				1E3828D10A0BAD3A275A2A38 /* [CP] Embed Pods Frameworks */,
+				CF0AE9ADC3D41960776FC6EE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,6 +198,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E3828D10A0BAD3A275A2A38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HackAToon/Pods-HackAToon-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackAToon/Pods-HackAToon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE14D16D200DD9A0ED9A67BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackAToon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF0AE9ADC3D41960776FC6EE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackAToon/Pods-HackAToon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9B9846D5205D24E0002D00C2 /* Sources */ = {
@@ -316,6 +397,7 @@
 		};
 		9B9846EC205D24E0002D00C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CA9CD131306B1A4D72C559D /* Pods-HackAToon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -330,6 +412,7 @@
 		};
 		9B9846ED205D24E0002D00C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B39E9EB764F2C2C022D49E1 /* Pods-HackAToon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
