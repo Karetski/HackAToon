@@ -22,7 +22,9 @@ class ViewController: UIViewController {
     
     @IBAction func getStartedButtonTouchUpInside(_ sender: UIButton) {
         let mapController = MapViewController()
-        navigationController?.pushViewController(mapController, animated: true)
+        let navigationController = UINavigationController(rootViewController: mapController)
+        navigationController.modalTransitionStyle = .flipHorizontal
+        present(navigationController, animated: true, completion: nil)
     }
 }
 

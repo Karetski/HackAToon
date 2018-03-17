@@ -1,12 +1,15 @@
 PODS:
+  - Cosmos (15.0.0)
   - Kingfisher (4.6.3)
 
 DEPENDENCIES:
+  - Cosmos (~> 15.0)
   - Kingfisher (~> 4.6.0)
 
 SPEC CHECKSUMS:
+  Cosmos: a6dbd3d0baa0cc8f51f8598f7508d5a09d0a9ade
   Kingfisher: 98e6d5b5e807645743e8ed5ececd25d688d38452
 
-PODFILE CHECKSUM: 2125f2a7bc8d6ecc054a53258f8165de7adee558
+PODFILE CHECKSUM: c56b939cd449c6c02077737b3183abaea3b59abb
 
 COCOAPODS: 1.4.0

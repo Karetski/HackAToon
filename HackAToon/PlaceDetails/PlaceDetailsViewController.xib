@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="previewImage" destination="Jgl-EU-yRj" id="MYb-bI-qi7"/>
                 <outlet property="ratingLabel" destination="EFf-oB-0oQ" id="vxf-hS-gQs"/>
+                <outlet property="ratingView" destination="TRP-nK-J9e" id="VhI-n5-sg8"/>
                 <outlet property="subtitleLabel" destination="Wun-gg-O7y" id="QCb-9Y-dCC"/>
                 <outlet property="titleLabel" destination="PD0-Fb-Tf0" id="qOp-sm-NwV"/>
                 <outlet property="view" destination="oCN-Eq-z5z" id="H5E-s0-tJi"/>
@@ -26,6 +27,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jgl-EU-yRj">
                     <rect key="frame" x="16" y="36" width="96" height="96"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="96" id="0Xm-Wz-7SS"/>
                         <constraint firstAttribute="height" constant="96" id="Ayv-A1-C1A"/>
@@ -55,13 +57,36 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-nK-J9e">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-nK-J9e" customClass="CosmosView" customModule="Cosmos">
                                     <rect key="frame" x="66.5" y="0.0" width="100" height="20"/>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="dRn-OG-Abp"/>
                                         <constraint firstAttribute="height" constant="20" id="qHK-KV-Wsp"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                            <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                            <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                            <integer key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                            <real key="value" value="2.5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                         </stackView>
