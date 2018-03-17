@@ -7,27 +7,39 @@
 //
 
 import UIKit
+import MapKit
 
 class MapViewController: UIViewController {
+    private var searchResultController: UISearchController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupNavigationBar()
         title = "Populars"
         // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let placeDetailsController = PlaceDetailsViewController()
-        navigationController?.pushViewController(placeDetailsController, animated: true)
+//        let placeDetailsController = PlaceDetailsViewController()
+//        navigationController?.pushViewController(placeDetailsController, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    private func setupNavigationBar() {
+        let locationSearchTable = ResultSearchController(nibName: "ResultSearchController", bundle: nil)
+
+        searchResultController = UISearchController(searchResultsController: locationSearchTable)
+        searchResultController?.searchResultsUpdater = locationSearchTable
+        navigationItem.titleView = searchResultController?.searchBar
+        searchResultController?.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
+    }
 
     /*
     // MARK: - Navigation

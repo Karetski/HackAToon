@@ -11,11 +11,15 @@ import MapKit
 
 class ResultSearchController: UIViewController {
 
+    private struct Constants {
+        static let identifer = "cell"
+    }
+
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.identifer)
         }
     }
     var matchingItems: [MKMapItem] = []
@@ -40,8 +44,7 @@ extension ResultSearchController: UISearchResultsUpdating {
             guard let response = response, let `self` = self else {
                 return
             }
-
-            self.matchingItems = response.mapItems
+            self.matchingItems += response.mapItems
             self.tableView.reloadData()
         }
     }
@@ -56,7 +59,7 @@ extension ResultSearchController: UITableViewDelegate {
 
 extension ResultSearchController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.identifer) else {
             return UITableViewCell()
         }
         cell.textLabel?.text = matchingItems[indexPath.row].placemark.name
