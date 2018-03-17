@@ -16,6 +16,7 @@
 		9B9846F8205D2AFC002D00C2 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9846F6205D2AFC002D00C2 /* MapViewController.xib */; };
 		9B9846FC205D2B7F002D00C2 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9846FB205D2B7F002D00C2 /* Temp.swift */; };
 		9B9846FE205D2B91002D00C2 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9846FD205D2B91002D00C2 /* PlaceDetailsViewController.swift */; };
+		9B984700205D2BF4002D00C2 /* PlaceDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9846FF205D2BF4002D00C2 /* PlaceDetailsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9B9846F6205D2AFC002D00C2 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		9B9846FB205D2B7F002D00C2 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		9B9846FD205D2B91002D00C2 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
+		9B9846FF205D2BF4002D00C2 /* PlaceDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDetailsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				9B9846FD205D2B91002D00C2 /* PlaceDetailsViewController.swift */,
+				9B9846FF205D2BF4002D00C2 /* PlaceDetailsViewController.xib */,
 			);
 			path = PlaceDetails;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B9846E7205D24E0002D00C2 /* LaunchScreen.storyboard in Resources */,
+				9B984700205D2BF4002D00C2 /* PlaceDetailsViewController.xib in Resources */,
 				9B9846E4205D24E0002D00C2 /* Assets.xcassets in Resources */,
 				9B9846E2205D24E0002D00C2 /* Main.storyboard in Resources */,
 				9B9846F8205D2AFC002D00C2 /* MapViewController.xib in Resources */,

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceDetailsViewController" customModule="HackAToon" customModuleProvider="target">
+            <connections>
+                <outlet property="previewImage" destination="Jgl-EU-yRj" id="MYb-bI-qi7"/>
+                <outlet property="ratingLabel" destination="EFf-oB-0oQ" id="vxf-hS-gQs"/>
+                <outlet property="subtitleLabel" destination="Wun-gg-O7y" id="QCb-9Y-dCC"/>
+                <outlet property="titleLabel" destination="PD0-Fb-Tf0" id="qOp-sm-NwV"/>
+                <outlet property="view" destination="oCN-Eq-z5z" id="H5E-s0-tJi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="oCN-Eq-z5z">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jgl-EU-yRj">
+                    <rect key="frame" x="16" y="36" width="96" height="96"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="96" id="0Xm-Wz-7SS"/>
+                        <constraint firstAttribute="height" constant="96" id="Ayv-A1-C1A"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Mid-SR-AZr">
+                    <rect key="frame" x="128" y="40" width="375" height="71.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PD0-Fb-Tf0">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wun-gg-O7y">
+                            <rect key="frame" x="0.0" y="28" width="375" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JJX-Hi-X1x">
+                            <rect key="frame" x="0.0" y="51.5" width="166.5" height="20"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFf-oB-0oQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="58.5" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-nK-J9e">
+                                    <rect key="frame" x="66.5" y="0.0" width="100" height="20"/>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="dRn-OG-Abp"/>
+                                        <constraint firstAttribute="height" constant="20" id="qHK-KV-Wsp"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o37-tB-hV2">
+                    <rect key="frame" x="16" y="148" width="375" height="1"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="gTu-g0-UtC"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="o37-tB-hV2" firstAttribute="leading" secondItem="1xr-Yr-OmR" secondAttribute="leading" constant="16" id="GW1-1l-lwN"/>
+                <constraint firstItem="o37-tB-hV2" firstAttribute="top" secondItem="Jgl-EU-yRj" secondAttribute="bottom" constant="16" id="Ixw-hw-VRZ"/>
+                <constraint firstItem="Jgl-EU-yRj" firstAttribute="leading" secondItem="1xr-Yr-OmR" secondAttribute="leading" constant="16" id="MdI-Ig-v5R"/>
+                <constraint firstItem="1xr-Yr-OmR" firstAttribute="trailing" secondItem="Mid-SR-AZr" secondAttribute="trailing" constant="16" id="U3O-Db-xQH"/>
+                <constraint firstItem="Mid-SR-AZr" firstAttribute="top" secondItem="1xr-Yr-OmR" secondAttribute="top" constant="20" id="hRB-jB-psD"/>
+                <constraint firstItem="Jgl-EU-yRj" firstAttribute="top" secondItem="1xr-Yr-OmR" secondAttribute="top" constant="16" id="hfe-qy-6dK"/>
+                <constraint firstItem="Mid-SR-AZr" firstAttribute="leading" secondItem="Jgl-EU-yRj" secondAttribute="trailing" constant="16" id="iAr-LR-St5"/>
+                <constraint firstItem="1xr-Yr-OmR" firstAttribute="trailing" secondItem="o37-tB-hV2" secondAttribute="trailing" constant="16" id="wpA-0m-Z06"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="1xr-Yr-OmR"/>
+            <point key="canvasLocation" x="20.5" y="177.5"/>
+        </view>
+    </objects>
+</document>
