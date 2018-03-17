@@ -38,7 +38,6 @@ class MapViewController: UIViewController {
     private func setupMap() {
         mapView.showsUserLocation = true
         mapView.delegate = self
-        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
 
         if CLLocationManager.locationServicesEnabled() {
@@ -62,10 +61,6 @@ class MapViewController: UIViewController {
     }
 
     @IBAction func currentLocationTouchUpInside(_ sender: UIButton) {
-        var coordinate = mapView.userLocation.coordinate
-        coordinate.latitude = mapView.userLocation.coordinate.latitude
-        coordinate.longitude = mapView.userLocation.coordinate.longitude
-        mapView.addAnnotation(PlaceAnnotation(locationName: "El'feleva bashnya. Paris.", coordinate: coordinate, rating: 3.8))
         moveToCurrentLocation()
     }
 
