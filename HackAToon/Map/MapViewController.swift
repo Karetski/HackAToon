@@ -55,10 +55,6 @@ class MapViewController: UIViewController {
     @IBAction func currentLocationTouchUpInside(_ sender: UIButton) {
         moveToCurrentLocation()
     }
-}
-
-
-extension MapViewController: MKMapViewDelegate {
 
     private func screenDistance() -> Double {
         let mapRect = self.mapView.visibleMapRect
