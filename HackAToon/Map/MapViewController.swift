@@ -18,11 +18,13 @@ class MapViewController: UIViewController {
     @IBOutlet weak var currentLocationBackground: UIVisualEffectView!
 
     private let locationManager = CLLocationManager()
+    private var searchResultController: UISearchController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
         setupMap()
+        setupSearchBar()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +79,17 @@ class MapViewController: UIViewController {
 
         return (screenDistanceWidth, screenDistanceHeight)
     }
+
+    private func setupSearchBar() {
+        let locationSearchTable = ResultSearchController(nibName: "ResultSearchController", bundle: nil)
+        locationSearchTable.delegate = self
+        searchResultController = UISearchController(searchResultsController: locationSearchTable)
+        searchResultController?.searchResultsUpdater = locationSearchTable
+        navigationItem.titleView = searchResultController?.searchBar
+        searchResultController?.hidesNavigationBarDuringPresentation = false
+        searchResultController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
+    }
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -107,5 +120,11 @@ extension MapViewController: MKMapViewDelegate {
         view.detailCalloutAccessoryView = starView
         
         return view
+    }
+}
+
+extension MapViewController: SearchResultDelegate {
+    func scrollTo(coordinate: CLLocationCoordinate2D) {
+        moveTo(location: coordinate)
     }
 }
