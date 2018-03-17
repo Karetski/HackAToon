@@ -56,11 +56,18 @@ class MapViewController: UIViewController {
         moveToCurrentLocation()
     }
 
-    private func screenDistance() -> Double {
+    private func screenDistance() -> (width: Double, height: Double) {
         let mapRect = self.mapView.visibleMapRect
-        let eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mapRect), MKMapRectGetMidY(mapRect))
-        let westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mapRect), MKMapRectGetMidY(mapRect))
-        return MKMetersBetweenMapPoints(eastMapPoint, westMapPoint)
+        
+        let eastMapPointX = MKMapPointMake(MKMapRectGetMinX(mapRect), MKMapRectGetMidY(mapRect))
+        let westMapPointX = MKMapPointMake(MKMapRectGetMaxX(mapRect), MKMapRectGetMidY(mapRect))
+        let screenDistanceWidth = MKMetersBetweenMapPoints(eastMapPointX, westMapPointX)
+        
+        let northMapPointY = MKMapPointMake(MKMapRectGetMinY(mapRect), MKMapRectGetMidX(mapRect))
+        let southMapPointY = MKMapPointMake(MKMapRectGetMaxY(mapRect), MKMapRectGetMidX(mapRect))
+        let screenDistanceHeight = MKMetersBetweenMapPoints(northMapPointY, southMapPointY)
+        
+        return (screenDistanceWidth, screenDistanceHeight)
     }
 }
 
