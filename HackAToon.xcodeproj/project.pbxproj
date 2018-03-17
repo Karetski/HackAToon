@@ -16,7 +16,6 @@
 		9B9846E7205D24E0002D00C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B9846E5205D24E0002D00C2 /* LaunchScreen.storyboard */; };
 		9B9846F7205D2AFC002D00C2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9846F5205D2AFC002D00C2 /* MapViewController.swift */; };
 		9B9846F8205D2AFC002D00C2 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9846F6205D2AFC002D00C2 /* MapViewController.xib */; };
-		9B9846FC205D2B7F002D00C2 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9846FB205D2B7F002D00C2 /* Temp.swift */; };
 		9B9846FE205D2B91002D00C2 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9846FD205D2B91002D00C2 /* PlaceDetailsViewController.swift */; };
 		9B984700205D2BF4002D00C2 /* PlaceDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9846FF205D2BF4002D00C2 /* PlaceDetailsViewController.xib */; };
 		C02E076128B50FBD59DD15BA /* Pods_HackAToon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA74B2E0F4E4B410288EDBE /* Pods_HackAToon.framework */; };
@@ -36,7 +35,6 @@
 		9B9846E8205D24E0002D00C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B9846F5205D2AFC002D00C2 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9B9846F6205D2AFC002D00C2 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
-		9B9846FB205D2B7F002D00C2 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		9B9846FD205D2B91002D00C2 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
 		9B9846FF205D2BF4002D00C2 /* PlaceDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDetailsViewController.xib; sourceTree = "<group>"; };
 		FCA74B2E0F4E4B410288EDBE /* Pods_HackAToon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackAToon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +100,6 @@
 			children = (
 				075A8025205D55FA00E94BCC /* ResultSearchController.swift */,
 				075A8024205D55FA00E94BCC /* ResultSearchController.xib */,
-				9B9846FB205D2B7F002D00C2 /* Temp.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -272,7 +269,6 @@
 				9B9846F7205D2AFC002D00C2 /* MapViewController.swift in Sources */,
 				9B9846DD205D24E0002D00C2 /* AppDelegate.swift in Sources */,
 				075A8027205D55FA00E94BCC /* ResultSearchController.swift in Sources */,
-				9B9846FC205D2B7F002D00C2 /* Temp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
