@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		075A8026205D55FA00E94BCC /* ResultSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075A8024205D55FA00E94BCC /* ResultSearchController.xib */; };
+		075A8027205D55FA00E94BCC /* ResultSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A8025205D55FA00E94BCC /* ResultSearchController.swift */; };
 		9B9846DD205D24E0002D00C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9846DC205D24E0002D00C2 /* AppDelegate.swift */; };
 		9B9846DF205D24E0002D00C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9846DE205D24E0002D00C2 /* ViewController.swift */; };
 		9B9846E2205D24E0002D00C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B9846E0205D24E0002D00C2 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		075A8024205D55FA00E94BCC /* ResultSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultSearchController.xib; sourceTree = "<group>"; };
+		075A8025205D55FA00E94BCC /* ResultSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultSearchController.swift; sourceTree = "<group>"; };
 		3B39E9EB764F2C2C022D49E1 /* Pods-HackAToon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackAToon.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackAToon/Pods-HackAToon.release.xcconfig"; sourceTree = "<group>"; };
 		6CA9CD131306B1A4D72C559D /* Pods-HackAToon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackAToon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackAToon/Pods-HackAToon.debug.xcconfig"; sourceTree = "<group>"; };
 		9B9846D9205D24E0002D00C2 /* HackAToon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackAToon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +100,8 @@
 		9B9846F9205D2B13002D00C2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				075A8025205D55FA00E94BCC /* ResultSearchController.swift */,
+				075A8024205D55FA00E94BCC /* ResultSearchController.xib */,
 				9B9846FB205D2B7F002D00C2 /* Temp.swift */,
 			);
 			path = Search;
@@ -193,6 +199,7 @@
 				9B984700205D2BF4002D00C2 /* PlaceDetailsViewController.xib in Resources */,
 				9B9846E4205D24E0002D00C2 /* Assets.xcassets in Resources */,
 				9B9846E2205D24E0002D00C2 /* Main.storyboard in Resources */,
+				075A8026205D55FA00E94BCC /* ResultSearchController.xib in Resources */,
 				9B9846F8205D2AFC002D00C2 /* MapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +271,7 @@
 				9B9846FE205D2B91002D00C2 /* PlaceDetailsViewController.swift in Sources */,
 				9B9846F7205D2AFC002D00C2 /* MapViewController.swift in Sources */,
 				9B9846DD205D24E0002D00C2 /* AppDelegate.swift in Sources */,
+				075A8027205D55FA00E94BCC /* ResultSearchController.swift in Sources */,
 				9B9846FC205D2B7F002D00C2 /* Temp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
