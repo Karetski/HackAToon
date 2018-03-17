@@ -11,16 +11,18 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController {
     
     @IBOutlet fileprivate weak var mapView: MKMapView!
     
     fileprivate let locationManager = CLLocationManager()
     fileprivate var currentLatitude: Double?
-    fileprivate var cuurentLongitude: Double?
+    fileprivate var curentLongitude: Double?
+    fileprivate var currentDistance: Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         setupLocationManager()
     }
     
@@ -34,6 +36,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    
     internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         currentLatitude = location.coordinate.latitude
@@ -42,3 +48,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
 }
 
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        updateScreenDistance()
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        updateScreenDistance()
+    }
+    
+    private func updateScreenDistance() {
+        let mapRect = self.mapView.visibleMapRect
+        let eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mapRect), MKMapRectGetMidY(mapRect))
+        let westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mapRect), MKMapRectGetMidY(mapRect))
+        self.currentDistance = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint)
+    }
+}
