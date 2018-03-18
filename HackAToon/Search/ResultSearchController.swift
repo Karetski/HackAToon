@@ -13,10 +13,16 @@ protocol SearchResultDelegate: class {
     func scrollTo(coordinate: CLLocationCoordinate2D)
 }
 
+struct SearchedItem {
+    var name: String
+    var id: String
+}
+
 class ResultSearchController: UIViewController {
 
     private struct Constants {
         static let identifer = "cell"
+        static let googleApiKey = "AIzaSyCaabI3hM-sVFeRkLSHYgHu192T4Ix_w_M"
     }
 
     @IBOutlet private weak var tableView: UITableView! {
@@ -27,7 +33,7 @@ class ResultSearchController: UIViewController {
         }
     }
     weak var delegate: SearchResultDelegate?
-    private var matchingItems: [MKMapItem] = []
+    fileprivate var matchingItems: [SearchedItem] = []
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -39,26 +45,93 @@ extension ResultSearchController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchBarText = searchController.searchBar.text else { return }
-        let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = searchBarText
-        let search = MKLocalSearch(request: request)
-        search.start { response, _ in
-            guard let response = response else {
+
+
+        guard let url = URL(string: "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + searchBarText + "&types=geocode&language=en&key=AIzaSyAtfg67quLwumlmpsENnm6rAzkODQywwvg") else {
+            return
+        }
+
+        let request = URLRequest(url: url)
+
+        URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
+            guard let strongSelf = self else { return }
+            guard let data = data, error == nil else { return }
+
+            var responseDict: [String: Any] = [:]
+            do {
+                responseDict = (try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any])!
+            } catch {
+                print(error.localizedDescription)
+            }
+
+            guard let predictions = responseDict["predictions"] as? [[String: Any]] else {
                 return
             }
-            self.matchingItems = response.mapItems
-            self.tableView.reloadData()
-        }
+
+            let items = predictions.map({ (prediction) -> SearchedItem in
+                return SearchedItem(name: prediction["description"] as! String, id: prediction["place_id"] as! String)
+            })
+
+            guard items.count > 0 else {
+                return
+            }
+
+            strongSelf.matchingItems = items
+            DispatchQueue.main.async {
+                strongSelf.tableView.reloadData()
+            }
+        }.resume()
     }
 }
 
 extension ResultSearchController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let selectedItemCoordiinate = matchingItems[indexPath.row].placemark.coordinate
-        dismiss(animated: true) { [weak self] in
-            self?.delegate?.scrollTo(coordinate: selectedItemCoordiinate)
+
+        let placeId = self.matchingItems[indexPath.row].id
+
+        guard let url = URL(string: "https://maps.googleapis.com/maps/api/geocode/json?place_id=" + placeId + "&key=" + Constants.googleApiKey) else {
+            return
         }
+        let request = URLRequest(url: url)
+
+        URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
+            guard let strongSelf = self else { return }
+            guard let data = data, error == nil else { return }
+
+            var responseDict: [String: Any] = [:]
+            do {
+                responseDict = (try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any])!
+            } catch {
+                print(error.localizedDescription)
+            }
+            guard let results = responseDict["results"] as? [[String: Any]] else {
+                return
+            }
+
+            guard let geometry = results.first!["geometry"] as? [String: Any] else {
+                return
+            }
+
+            guard let location = geometry["location"] as? [String: Any] else {
+                return
+            }
+
+            guard let lat = location["lat"] as? Double, let lng = location["lng"] as? Double else {
+                return
+            }
+
+            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+
+            DispatchQueue.main.async {
+                strongSelf.dismiss(animated: true) { [weak self] in
+                    guard let strongSelf = self else {
+                        return
+                    }
+                    strongSelf.delegate?.scrollTo(coordinate: coordinate)
+                }
+            }
+        }.resume()
     }
 }
 
@@ -68,7 +141,7 @@ extension ResultSearchController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell.textLabel?.text = matchingItems[indexPath.row].placemark.name
+        cell.textLabel?.text = matchingItems[indexPath.row].name
         return cell
     }
 
