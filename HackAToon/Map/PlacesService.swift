@@ -47,15 +47,18 @@ class PlacesService {
     typealias FetchResult = (Result<[PlaceDescription]>) -> Void
 
     func fetchPlaces(on location: CLLocationCoordinate2D, completion: FetchResult?) {
-//        let base = "https://example.com"
-//        let query = "?latitude=\(location.latitude)&longitude\(location.longitude)"
+        let base = "http://epbygrow0093.grodno.epam.com:3000/locations"
+        let params: Parameters = [
+            "lat": location.latitude,
+            "lng": location.longitude,
+        ]
 
-        guard let url = URL(string: "https://api.myjson.com/bins/14a8ej"/*base + query*/) else {
+        guard let url = URL(string: base) else {
             completion?(.failure(Error.invalidURL))
             return
         }
 
-        Alamofire.request(url, method: .get).responseData { (response) in
+        Alamofire.request(url, method: .get, parameters: params).responseData { (response) in
             do {
                 switch response.result {
                 case .success(let data):
@@ -71,4 +74,3 @@ class PlacesService {
         }
     }
 }
-
