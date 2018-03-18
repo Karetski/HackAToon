@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet weak var currentLocationBackground: UIVisualEffectView!
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     private let locationManager = CLLocationManager()
     private let placesService = PlacesService()
     private var searchResultController: UISearchController?
@@ -81,12 +82,14 @@ class MapViewController: UIViewController {
 
     func loadPlaces(in location: CLLocationCoordinate2D) {
         isRequestInProgress = true
+        activityIndicator.startAnimating()
         placesService.fetchPlaces(on: location) { [weak self] (result) in
             self?.isRequestInProgress = false
             switch result {
             case .success(let places):
                 self?.updateAnnotations(for: places)
             case .failure(let error):
+                self?.activityIndicator.stopAnimating()
                 print("Error: \(error)")
             }
         }
@@ -103,6 +106,7 @@ class MapViewController: UIViewController {
         }
         mapView.removeAnnotations(placeAnnotations)
         mapView.addAnnotations(placeAnnotations)
+        activityIndicator.stopAnimating()
     }
     
     private func screenDistance() -> (width: Double, height: Double) {
