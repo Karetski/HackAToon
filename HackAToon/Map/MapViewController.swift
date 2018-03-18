@@ -18,7 +18,9 @@ class MapViewController: UIViewController {
     @IBOutlet weak var currentLocationBackground: UIVisualEffectView!
 
     private let locationManager = CLLocationManager()
+    private let placesService = PlacesService()
     private var searchResultController: UISearchController?
+    private var isRequestInProgress: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,7 @@ class MapViewController: UIViewController {
             return
         }
         moveTo(location: currentLocation)
+        loadPlaces(in: currentLocation)
     }
 
     private func moveTo(location: CLLocationCoordinate2D) {
@@ -66,6 +69,42 @@ class MapViewController: UIViewController {
         moveToCurrentLocation()
     }
 
+    @IBAction func mapLongPress(_ sender: UILongPressGestureRecognizer) {
+        guard sender.state == .ended else {
+            return
+        }
+
+        let touchPoint = sender.location(in: mapView)
+        let location = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        loadPlaces(in: location)
+    }
+
+    func loadPlaces(in location: CLLocationCoordinate2D) {
+        isRequestInProgress = true
+        placesService.fetchPlaces(on: location) { [weak self] (result) in
+            self?.isRequestInProgress = false
+            switch result {
+            case .success(let places):
+                self?.updateAnnotations(for: places)
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+
+    func updateAnnotations(for places: [PlaceDescription]) {
+        let placeAnnotations = places.map { (place) in
+            return PlaceAnnotation(
+                locationName: place.name,
+                coordinate: CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude),
+                rating: place.rating,
+                identifier: place.identifier
+            )
+        }
+        mapView.removeAnnotations(placeAnnotations)
+        mapView.addAnnotations(placeAnnotations)
+    }
+    
     private func screenDistance() -> (width: Double, height: Double) {
         let mapRect = self.mapView.visibleMapRect
 
@@ -102,9 +141,9 @@ extension MapViewController: MKMapViewDelegate {
         let view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         view.canShowCallout = true
         
-        let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 12, height: 32))
+        let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 24))
         rightButton.imageView?.contentMode = .scaleToFill
-        rightButton.setImage(UIImage(named: "GoToAnnotationDetails"), for: .normal)
+        rightButton.setImage(#imageLiteral(resourceName: "GoToInstagram"), for: .normal)
         view.rightCalloutAccessoryView = rightButton
 
         var starSetting = CosmosSettings()
@@ -120,6 +159,34 @@ extension MapViewController: MKMapViewDelegate {
         view.detailCalloutAccessoryView = starView
         
         return view
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let annotation = view.annotation as? PlaceAnnotation else {
+            return
+        }
+
+        openLocation(by: annotation.identifier)
+    }
+
+    private func openLocation(by identifier: String) {
+        guard let url = URL(string: "instagram://location?id=" + identifier),
+            UIApplication.shared.canOpenURL(url) else {
+                let alertController = UIAlertController(
+                    title: "Failed",
+                    message: "Instagram is not installed on your device!",
+                    preferredStyle: .alert
+                )
+                alertController.addAction(
+                    UIAlertAction(title: "OK", style: .cancel)
+                )
+                navigationController?.present(
+                    alertController,
+                    animated: true
+                )
+                return
+        }
+        UIApplication.shared.open(url)
     }
 }
 

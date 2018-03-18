@@ -24,6 +24,10 @@
             <subviews>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Yvz-WM-ydh">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Tft-Mh-kGh" appends="YES" id="fRs-H0-PoY"/>
+                    </connections>
                 </mapView>
                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wGr-XI-yyV">
                     <rect key="frame" x="319" y="611" width="40" height="40"/>
@@ -77,6 +81,11 @@
             <viewLayoutGuide key="safeArea" id="r7W-ku-8fH"/>
             <point key="canvasLocation" x="-252.5" y="-47.5"/>
         </view>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Tft-Mh-kGh">
+            <connections>
+                <action selector="mapLongPress:" destination="-1" id="GqH-hd-3VC"/>
+            </connections>
+        </pongPressGestureRecognizer>
     </objects>
     <resources>
         <image name="UpdateLocation" width="21" height="21"/>

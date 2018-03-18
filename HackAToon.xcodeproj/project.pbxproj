@@ -18,6 +18,7 @@
 		9B9846F8205D2AFC002D00C2 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9846F6205D2AFC002D00C2 /* MapViewController.xib */; };
 		9B9846FE205D2B91002D00C2 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9846FD205D2B91002D00C2 /* PlaceDetailsViewController.swift */; };
 		9B984700205D2BF4002D00C2 /* PlaceDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9846FF205D2BF4002D00C2 /* PlaceDetailsViewController.xib */; };
+		9BF83BBD205E4A0F009ED7D0 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF83BBC205E4A0F009ED7D0 /* PlacesService.swift */; };
 		C02E076128B50FBD59DD15BA /* Pods_HackAToon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA74B2E0F4E4B410288EDBE /* Pods_HackAToon.framework */; };
 		D8538EFF205DB20C00B0C0B3 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8538EFE205DB20C00B0C0B3 /* PlaceAnnotation.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		9B9846F6205D2AFC002D00C2 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		9B9846FD205D2B91002D00C2 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
 		9B9846FF205D2BF4002D00C2 /* PlaceDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDetailsViewController.xib; sourceTree = "<group>"; };
+		9BF83BBC205E4A0F009ED7D0 /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
 		D8538EFE205DB20C00B0C0B3 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		FCA74B2E0F4E4B410288EDBE /* Pods_HackAToon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackAToon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -91,6 +93,7 @@
 		9B9846F4205D2AFC002D00C2 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				9BF83BBC205E4A0F009ED7D0 /* PlacesService.swift */,
 				D8538EFE205DB20C00B0C0B3 /* PlaceAnnotation.swift */,
 				9B9846F5205D2AFC002D00C2 /* MapViewController.swift */,
 				9B9846F6205D2AFC002D00C2 /* MapViewController.xib */,
@@ -214,11 +217,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HackAToon/Pods-HackAToon-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
@@ -267,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BF83BBD205E4A0F009ED7D0 /* PlacesService.swift in Sources */,
 				9B9846DF205D24E0002D00C2 /* ViewController.swift in Sources */,
 				9B9846FE205D2B91002D00C2 /* PlaceDetailsViewController.swift in Sources */,
 				9B9846F7205D2AFC002D00C2 /* MapViewController.swift in Sources */,
