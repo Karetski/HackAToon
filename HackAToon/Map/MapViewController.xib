@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="HackAToon" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="pc5-Kc-xqb" id="vaw-BB-SdB"/>
                 <outlet property="currentLocationBackground" destination="wGr-XI-yyV" id="Tjg-NT-Il8"/>
                 <outlet property="mapView" destination="Yvz-WM-ydh" id="Yrl-P1-NkC"/>
                 <outlet property="view" destination="vku-7M-6lK" id="xgG-v3-4Lp"/>
@@ -66,6 +67,13 @@
                         <action selector="currentLocationTouchUpInside:" destination="-1" eventType="touchUpInside" id="0vh-Ib-wL3"/>
                     </connections>
                 </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pc5-Kc-xqb">
+                    <rect key="frame" x="163.5" y="309.5" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="Pqx-T5-ts4"/>
+                        <constraint firstAttribute="width" constant="48" id="h8A-ZZ-RFn"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -73,6 +81,8 @@
                 <constraint firstItem="Yvz-WM-ydh" firstAttribute="trailing" secondItem="r7W-ku-8fH" secondAttribute="trailing" id="4xG-YA-pgC"/>
                 <constraint firstItem="r7W-ku-8fH" firstAttribute="trailing" secondItem="HuV-OF-e9i" secondAttribute="trailing" constant="16" id="70N-nC-5w2"/>
                 <constraint firstItem="r7W-ku-8fH" firstAttribute="trailing" secondItem="wGr-XI-yyV" secondAttribute="trailing" constant="16" id="Hu8-9P-zlA"/>
+                <constraint firstItem="pc5-Kc-xqb" firstAttribute="centerY" secondItem="vku-7M-6lK" secondAttribute="centerY" id="I0F-vH-z1y"/>
+                <constraint firstItem="pc5-Kc-xqb" firstAttribute="centerX" secondItem="vku-7M-6lK" secondAttribute="centerX" id="IW9-vy-gx6"/>
                 <constraint firstItem="Yvz-WM-ydh" firstAttribute="top" secondItem="vku-7M-6lK" secondAttribute="top" id="LfG-px-5fy"/>
                 <constraint firstItem="r7W-ku-8fH" firstAttribute="bottom" secondItem="wGr-XI-yyV" secondAttribute="bottom" constant="16" id="OhM-sQ-mbM"/>
                 <constraint firstItem="Yvz-WM-ydh" firstAttribute="bottom" secondItem="r7W-ku-8fH" secondAttribute="bottom" id="xHb-8s-DCA"/>

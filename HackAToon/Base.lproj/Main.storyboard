@@ -21,9 +21,8 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YQ1-cb-oSu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hdq-C1-UIE">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hdq-C1-UIE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.754181338028169" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hack a toon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBN-UL-mZP">
@@ -67,12 +66,16 @@
                             <constraint firstItem="pBN-UL-mZP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BuU-rx-kmG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gXQ-fm-z9m" secondAttribute="trailing" constant="80" id="JHh-ej-k75"/>
                             <constraint firstItem="9OZ-08-F36" firstAttribute="centerX" secondItem="pBN-UL-mZP" secondAttribute="centerX" id="Kss-DQ-fAf"/>
+                            <constraint firstItem="Hdq-C1-UIE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="L6L-tS-ES5"/>
+                            <constraint firstItem="Hdq-C1-UIE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Qov-qD-GMJ"/>
                             <constraint firstItem="gXQ-fm-z9m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="Sht-H6-tYA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gXQ-fm-z9m" secondAttribute="bottom" constant="80" id="UIO-Tg-Sdb"/>
                             <constraint firstItem="9OZ-08-F36" firstAttribute="top" secondItem="pBN-UL-mZP" secondAttribute="bottom" constant="60" id="XjK-Ye-R1o"/>
                             <constraint firstItem="YQ1-cb-oSu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aZF-de-Ox6"/>
                             <constraint firstItem="pBN-UL-mZP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="cyX-YF-Iaa"/>
                             <constraint firstItem="YQ1-cb-oSu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="f1S-1W-pjT"/>
+                            <constraint firstItem="Hdq-C1-UIE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kZk-S3-Cha"/>
+                            <constraint firstItem="Hdq-C1-UIE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kjn-89-cdQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
